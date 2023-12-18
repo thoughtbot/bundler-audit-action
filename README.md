@@ -1,4 +1,5 @@
 <!-- Variables -->
+
 [changelog]: /CHANGELOG.md
 [coc]: /CODE_OF_CONDUCT.md
 [contributing]: /CONTRIBUTING.md
@@ -23,9 +24,9 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: 'Bundler Audit'
-        uses: andrewmcodes/bundler-audit-action@main
+      - uses: actions/checkout@v4
+      - name: "Bundler Audit"
+        uses: thoughtbot/bundler-audit-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
