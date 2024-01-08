@@ -1,33 +1,33 @@
----
-name: Changelog
+# ---
+# name: Changelog
 
-on:
-  push:
-    branches:
-      - main
-jobs:
-  changelog:
-    name: Changelog Entry Action
-    runs-on: ubuntu-latest
-    timeout-minutes: 4
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-      - name: Create local changes
-        run: |
-          gem install github_changelog_generator
-          github_changelog_generator -u andrewmcodes -p bundler-audit-action --token ${{ secrets.GITHUB_TOKEN }}
-      - name: Commit files
-        run: |
-          git config --local user.email "andrewmcodes@protonmail.com"
-          git config --local user.name "Andrew Mason"
-          git add CHANGELOG.md
-          git commit -m "Update changelog"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   changelog:
+#     name: Changelog Entry Action
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 4
+#     if: "!contains(github.event.head_commit.message, '[ci skip]')"
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: "3.3"
+#       - name: Create local changes
+#         run: |
+#           gem install github_changelog_generator
+#           github_changelog_generator -u andrewmcodes -p bundler-audit-action --token ${{ secrets.GITHUB_TOKEN }}
+#       - name: Commit files
+#         run: |
+#           git config --local user.email "andrewmcodes@protonmail.com"
+#           git config --local user.name "Andrew Mason"
+#           git add CHANGELOG.md
+#           git commit -m "Update changelog"
+#       - name: Push changes
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           branch: main
