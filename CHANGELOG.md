@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/andrewmcodes/bundler-audit-action/compare/v0.1.0...HEAD)
 
+**Fixed bugs:**
+
+- the --update isn't actually updating [\#1](https://github.com/andrewmcodes/bundler-audit-action/issues/1)
+
 **Merged pull requests:**
 
 - Fix issue with the changelog action and update the changelog [\#4](https://github.com/andrewmcodes/bundler-audit-action/pull/4) ([andrewmcodes](https://github.com/andrewmcodes))
